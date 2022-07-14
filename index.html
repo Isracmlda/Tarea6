@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 6: Conceptos basicos de JavaScript</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <header class="row">
+            <h2 class="text-center">Tarea 6: Conceptos basicos de JavaScript</h2>
+        </header>
+        <br>
+        <div class="container">
+            <div class="row">
+                <form class="col-sm-12 col-md-6 col-lg-6" action="">
+                    <h5>Control de flujo y manejo de errores </h5>
+                    <label for="cbxMarvel" class="form-label etiqueta">Super Heroes</label>
+                    <div class="mb-3 ancho">
+                        
+                        <select class="form-select" id="cbxMarvel">
+                            <option></option>
+                            <option>Ms Marvel</option>
+                            <option>Spider-Man</option>
+                            <option>Doctor Strange</option>
+                            <option>Iron Man</option>
+                            <option>Thor</option>
+                        </select>
+                    </div>
+
+                    <label for="txtTexto" class="form-label etiqueta">Texto</label>
+                    <div class="mb-3 ancho">
+                        
+                        <input type="text" class="form-control" id="txtTexto">
+                    </div>
+
+                    
+                    <div class="anchoboton">
+                    <button type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="ifelse(document.getElementById('txtTexto').value)">if...else</button>
+                    <button type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="functionswitch(document.getElementById('cbxMarvel').value)">switch</button>
+                    <button type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="manejodeExcepcion(document.getElementById('txtTexto').value)">try/catch/throw</button>
+                    <button type="button botoncentrado" class="btn btn-primary mb-3" onclick="objetoError(new TypeError())">Objetos
+                        Error</button>
+                    </div>
+                </form>
+
+                <form class="col-sm-12 col-md-6 col-lg-6" action="">
+                    <h5>Bucles e iteración</h5>
+                    <div class="anchoboton">
+                        <button id="_for" type="button" class="btn btn-primary mb-3"
+                            onclick="bucles(document.getElementById('_for').innerHTML)">for</button>
+                        <button id="_while" type="button" class="btn btn-primary mb-3"
+                            onclick="bucles(document.getElementById('_while').innerHTML)">while</button>
+                        <button id="_doWhile" type="button" class="btn btn-primary mb-3"
+                            onclick="bucles(document.getElementById('_doWhile').innerHTML)">do While</button>
+                    </div>
+                
+                    <h5>Numeros y fechas</h5>
+                    <div class="anchoboton">
+                    <button id="_Number" type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="objetos(document.getElementById('_Number').innerHTML)">Number</button>
+                    <button id="_Math" type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="objetos(document.getElementById('_Math').innerHTML)">Math</button>
+                    <button id="_Date" type="button botoncentrado" class="btn btn-primary mb-3"
+                        onclick="objetos(document.getElementById('_Date').innerHTML)">Date</button>
+                    </div>
+                    <h5>Arrays</h5>
+                    <div class="anchoboton">
+                        <button type="button botoncentrado" class="btn btn-primary mb-3" onclick="array()">Frutas</button>
+                        <button type="button botoncentrado" class="btn btn-primary mb-3" onclick="arrayTipado()">ArrayEntero8</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col-sm-12 col-md-6 col-lg-6" action="">
+                    <h5>Formateo de texto</h5>
+                    <div class="mb-3 ancho">
+                        <textarea name="txa1" id="txa1" class="form-control" cols="30" rows="3"></textarea>
+                    </div>
+
+                    <div class="mb-3 anchoboton">
+                        <button id="btnMayuscula" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="formatearTexto(document.getElementById('btnMayuscula').innerHTML, document.getElementById('txa1').value, document.getElementById('txa1'))">Mayúscula</button>
+                        <button id="btnMinuscula" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="formatearTexto(document.getElementById('btnMinuscula').innerHTML, document.getElementById('txa1').value, document.getElementById('txa1'))">Minúscula</button>
+                        <button id="btnTamanio" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="formatearTexto(document.getElementById('btnTamanio').innerHTML, document.getElementById('txa1').value, document.getElementById('txa1'))">Tamaño</button>
+                    </div>
+                </form>
+
+                <form class="col-sm-12 col-md-6 col-lg-6" action="">
+                    <h5>Operadores</h5>
+                    <div class="mb-3">
+                        <label for="txtNum1" class="form-label etiqueta">Numero 1</label>
+                        <input type="text" class="form-control ancho" id="txtNum1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtNum2" class="form-label etiqueta">Numero 2</label>
+                        <input type="text" class="form-control ancho" id="txtNum2">
+                    </div>
+
+                    <div class="mb-3 anchoboton">
+                        <button id="btnSuma" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="operar(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value, document.getElementById('btnSuma').innerHTML)">Sumar</button>
+                        <button id="btnResta" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="operar(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value, document.getElementById('btnResta').innerHTML)">Restar</button>
+                        <button id="btnMultiplicacion" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="operar(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value, document.getElementById('btnMultiplicacion').innerHTML)">Multiplicar</button>
+                        <button id="btnDivision" type="button botoncentrado" class="btn btn-primary mb-3"
+                            onclick="operar(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value, document.getElementById('btnDivision').innerHTML)">Dividir</button>
+                    </div>
+                </form>
+
+                
+            </div>
+        </div>
+        <footer class="row">
+
+            <credit>&copy; Derechos Reservados <span id="year"></span></credit>
+            <div id="autor"></div>
+
+            <script>
+                document.getElementById("year").innerHTML = new Date().getFullYear();
+                document.getElementById('autor').innerHTML = "Israel Calvo Morera";
+            </script>
+        </footer>
+    </div>
+</body>
+
+</html>
